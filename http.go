@@ -23,6 +23,9 @@ func (c *Client) GetRequestContext(ctx context.Context, payload string, graphFor
 
 	// construct the request
 	req, err := http.NewRequest("GET", u.String(), nil)
+	if err != nil {
+		return "", errors.Wrap(err, "fail to create the request")
+	}
 	timeoutCtx, cancel := context.WithTimeout(ctx, c.Config.Timeout)
 	defer cancel()
 	req = req.WithContext(timeoutCtx)
