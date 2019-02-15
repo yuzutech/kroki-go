@@ -38,7 +38,6 @@ const (
 
 // Configuration contains the configuration for the Kroki client
 type Configuration struct {
-	Host    string
-	Mode    string
+	URL     string
 	Timeout time.Duration
 }

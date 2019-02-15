@@ -34,9 +34,8 @@ func TestFromString(t *testing.T) {
 		t.Errorf("error getting the port :\n%+v", err)
 	}
 	client := New(Configuration{
-		Host:    fmt.Sprintf("localhost:%d", port),
+		URL:     fmt.Sprintf("http://localhost:%d", port),
 		Timeout: time.Second * 10,
-		Mode:    "http",
 	})
 	_, err = client.FromString("digraph G {Hello->World}", Graphviz, Svg)
 	if err != nil {
@@ -67,9 +66,8 @@ func TestFromFile(t *testing.T) {
 		t.Errorf("error getting the port :\n%+v", err)
 	}
 	client := New(Configuration{
-		Host:    fmt.Sprintf("localhost:%d", port),
+		URL:     fmt.Sprintf("http://localhost:%d", port),
 		Timeout: time.Second * 10,
-		Mode:    "http",
 	})
 	_, err = client.FromFile("tests/hello.dot", Graphviz, Svg)
 	if err != nil {

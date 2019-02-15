@@ -2,7 +2,6 @@ package kroki
 
 import (
 	"context"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -16,9 +15,9 @@ import (
 func (c *Client) GetRequestContext(ctx context.Context, payload string, graphFormat GraphFormat, imageFormat ImageFormat) (string, error) {
 
 	// construct the url
-	u, err := url.Parse(fmt.Sprintf("%s://%s", c.Config.Mode, c.Config.Host))
+	u, err := url.Parse(c.Config.URL)
 	if err != nil {
-		return "", errors.Wrapf(err, "fail to create URL from %s", c.Config.Host)
+		return "", errors.Wrapf(err, "fail to create URL from %s", c.Config.URL)
 	}
 	u.Path = path.Join(u.Path, string(graphFormat), string(imageFormat), payload)
 
