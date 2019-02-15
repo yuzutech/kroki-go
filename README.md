@@ -1,5 +1,7 @@
 # kroki-go
 
+[![Build Status](https://travis-ci.org/yuzutech/kroki-go.svg?branch=master)](https://travis-ci.org/yuzutech/kroki-go)
+
 A Golang library for [https://kroki.io/](https://kroki.io/).
 
 ## Usage
