@@ -15,7 +15,7 @@ func TestConfiguration(t *testing.T) {
 		{
 			in: "{}",
 			want: Configuration{
-				URL:     "https://kroki.io",
+				URL:     "https://demo.kroki.io",
 				Timeout: time.Second * 20,
 			},
 		},
