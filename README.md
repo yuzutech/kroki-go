@@ -1,11 +1,10 @@
-# kroki-go
+# Kroki Go
 
 [![Build Status](https://travis-ci.org/yuzutech/kroki-go.svg?branch=master)](https://travis-ci.org/yuzutech/kroki-go)
 
 A Golang library for [https://kroki.io/](https://kroki.io/).
 
 ## Usage
-
 
 Create a client:
 
@@ -17,6 +16,7 @@ client := kroki.New(kroki.Configuration{
 ```
 
 ### String to diagram
+
 Use the `FromString` function to convert a string to a diagram:
 
 ```golang
@@ -39,7 +39,7 @@ result, err := client.FromFile("./hello.dot", kroki.Graphviz, kroki.Svg)
 
 ### Write to a file
 
-use the `WriteToFile` function to write a result to a file:
+Use the `WriteToFile` function to write a result to a file:
 
 ```golang
 err = client.WriteToFile("./result.svg", result)
