@@ -44,7 +44,7 @@ type Configuration struct {
 	Timeout time.Duration
 }
 
-// UnmarshalYAML parses a reporter configuration from YAML.
+// UnmarshalYAML parses a kroki configuration from YAML.
 func (configuration *Configuration) UnmarshalYAML(unmarshal func(interface{}) error) error {
 	type rawConfiguration struct {
 		URL     string
