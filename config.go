@@ -2,6 +2,8 @@ package kroki
 
 import (
 	"time"
+
+	"github.com/pkg/errors"
 )
 
 // ImageFormat the image format returned by Kroki
@@ -40,4 +42,26 @@ const (
 type Configuration struct {
 	URL     string
 	Timeout time.Duration
+}
+
+// UnmarshalYAML parses a reporter configuration from YAML.
+func (configuration *Configuration) UnmarshalYAML(unmarshal func(interface{}) error) error {
+	type rawConfiguration struct {
+		URL     string
+		Timeout uint64
+	}
+	// this is the default configuration
+	rawConfig := rawConfiguration{
+		URL:     "https://kroki.io",
+		Timeout: 20,
+	}
+
+	if err := unmarshal(&rawConfig); err != nil {
+		return errors.Wrap(err, "fail to decode the yaml configuration")
+	}
+	*configuration = Configuration{
+		URL:     rawConfig.URL,
+		Timeout: time.Second * time.Duration(rawConfig.Timeout),
+	}
+	return nil
 }
