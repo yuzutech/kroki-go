@@ -11,15 +11,15 @@ import (
 )
 
 // GetRequestContext executes a GET request on Kroki using a context
-// The payload is a string representing the graph in deflate + base64 format
-func (c *Client) GetRequestContext(ctx context.Context, payload string, graphFormat GraphFormat, imageFormat ImageFormat) (string, error) {
+// The payload is a string representing the diagram in deflate + base64 format
+func (c *Client) GetRequestContext(ctx context.Context, payload string, diagramType DiagramType, imageFormat ImageFormat) (string, error) {
 
 	// construct the url
 	u, err := url.Parse(c.Config.URL)
 	if err != nil {
 		return "", errors.Wrapf(err, "fail to create URL from %s", c.Config.URL)
 	}
-	u.Path = path.Join(u.Path, string(graphFormat), string(imageFormat), payload)
+	u.Path = path.Join(u.Path, string(diagramType), string(imageFormat), payload)
 
 	// construct the request
 	req, err := http.NewRequest("GET", u.String(), nil)
@@ -52,7 +52,7 @@ func (c *Client) GetRequestContext(ctx context.Context, payload string, graphFor
 }
 
 // GetRequest executes a GET request on Kroki
-// The payload is a string representing the graph in deflate + base64 format
-func (c *Client) GetRequest(payload string, graphFormat GraphFormat, imageFormat ImageFormat) (string, error) {
-	return c.GetRequestContext(context.Background(), payload, graphFormat, imageFormat)
+// The payload is a string representing the diagram in deflate + base64 format
+func (c *Client) GetRequest(payload string, diagramType DiagramType, imageFormat ImageFormat) (string, error) {
+	return c.GetRequestContext(context.Background(), payload, diagramType, imageFormat)
 }
