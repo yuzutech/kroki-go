@@ -20,8 +20,8 @@ func TestFromString(t *testing.T) {
 			t.Errorf("FromString error\nexpected: %s\nactual:   %s", expected, payload)
 		}
 		imageFormat := uri[len(uri)-2]
-		if imageFormat != string(Svg) {
-			t.Errorf("FromString error\nexpected: %s\nactual:   %s", string(Svg), imageFormat)
+		if imageFormat != string(SVG) {
+			t.Errorf("FromString error\nexpected: %s\nactual:   %s", string(SVG), imageFormat)
 		}
 		diagramType := uri[len(uri)-3]
 		if diagramType != string(GraphViz) {
@@ -37,7 +37,7 @@ func TestFromString(t *testing.T) {
 		URL:     fmt.Sprintf("http://localhost:%d", port),
 		Timeout: time.Second * 10,
 	})
-	_, err = client.FromString("digraph G {Hello->World}", GraphViz, Svg)
+	_, err = client.FromString("digraph G {Hello->World}", GraphViz, SVG)
 	if err != nil {
 		t.Errorf("FromString error:\n%+v", err)
 	}
@@ -52,8 +52,8 @@ func TestFromFile(t *testing.T) {
 			t.Errorf("FromString error\nexpected: %s\nactual:   %s", expected, payload)
 		}
 		imageFormat := uri[len(uri)-2]
-		if imageFormat != string(Svg) {
-			t.Errorf("FromString error\nexpected: %s\nactual:   %s", string(Svg), imageFormat)
+		if imageFormat != string(SVG) {
+			t.Errorf("FromString error\nexpected: %s\nactual:   %s", string(SVG), imageFormat)
 		}
 		diagramType := uri[len(uri)-3]
 		if diagramType != string(GraphViz) {
@@ -69,7 +69,7 @@ func TestFromFile(t *testing.T) {
 		URL:     fmt.Sprintf("http://localhost:%d", port),
 		Timeout: time.Second * 10,
 	})
-	_, err = client.FromFile("tests/hello.dot", GraphViz, Svg)
+	_, err = client.FromFile("tests/hello.dot", GraphViz, SVG)
 	if err != nil {
 		t.Errorf("FromString error:\n%+v", err)
 	}

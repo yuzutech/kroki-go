@@ -13,8 +13,16 @@ type ImageFormat string
 type DiagramType string
 
 const (
-	// Svg is the svg format
-	Svg ImageFormat = "svg"
+	// SVG is the svg format
+	SVG ImageFormat = "svg"
+	// PNG is the png format
+	PNG ImageFormat = "png"
+	// JPEG is the jpeg format
+	JPEG ImageFormat = "jpeg"
+	// PDF is the pdf format
+	PDF ImageFormat = "pdf"
+	// Base64 is the base64 format
+	Base64 ImageFormat = "base64"
 )
 
 const (

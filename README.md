@@ -20,7 +20,7 @@ client := kroki.New(kroki.Configuration{
 Use the `FromString` function to convert a string to a diagram:
 
 ```golang
-result, err := client.FromString("digraph G {Hello->World}", kroki.GraphViz, kroki.Svg)
+result, err := client.FromString("digraph G {Hello->World}", kroki.GraphViz, kroki.SVG)
 ```
 
 Here, `result` contains the image returned by Kroki as a string.
@@ -34,7 +34,7 @@ echo "digraph G {Hello->World}" > hello.dot
 ```
 
 ```golang
-result, err := client.FromFile("./hello.dot", kroki.GraphViz, kroki.Svg)
+result, err := client.FromFile("./hello.dot", kroki.GraphViz, kroki.SVG)
 ```
 
 ### Write to a file
