@@ -60,7 +60,10 @@ func TestFromStringWithServerError(t *testing.T) {
 			t.Errorf("FromStringWithServerError error\nexpected: %s\nactual:   %s", string(BlockDiag), diagramType)
 		}
 		w.WriteHeader(400)
-		w.Write([]byte("Error 400: Unsupported output format: jpeg. Must be one of blockdiag for png, svg or pdf"))
+		_, err := w.Write([]byte("Error 400: Unsupported output format: jpeg. Must be one of blockdiag for png, svg or pdf"))
+		if err != nil {
+			t.Errorf("error writting response:\n%+v", err)
+		}
 	}))
 	defer ts.Close()
 	port, err := strconv.ParseUint(strings.Split(ts.URL, ":")[2], 10, 16)
