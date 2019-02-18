@@ -17,7 +17,7 @@ func (c *Client) GetRequestContext(ctx context.Context, payload string, diagramT
 	// construct the url
 	u, err := url.Parse(c.Config.URL)
 	if err != nil {
-		return "", errors.Wrapf(err, "fail to create URL from %s", c.Config.URL)
+		return "", errors.Wrapf(err, "fail to create the URL from %s", c.Config.URL)
 	}
 	u.Path = path.Join(u.Path, string(diagramType), string(imageFormat), payload)
 
@@ -28,6 +28,7 @@ func (c *Client) GetRequestContext(ctx context.Context, payload string, diagramT
 	}
 	timeoutCtx, cancel := context.WithTimeout(ctx, c.Config.Timeout)
 	defer cancel()
+	req.Header = http.Header{"Accept": {"text/plain"}}
 	req = req.WithContext(timeoutCtx)
 
 	// execute the request
@@ -40,9 +41,16 @@ func (c *Client) GetRequestContext(ctx context.Context, payload string, diagramT
 	// read the result
 	defer response.Body.Close()
 	if response.StatusCode != http.StatusOK {
+		body, err := ioutil.ReadAll(response.Body)
+		var message string
+		if err != nil {
+			message = ""
+		} else {
+			message = string(body)
+		}
 		return "", errors.Errorf(
-			"fail to generate the image, status %d",
-			response.StatusCode)
+			"fail to generate the image {status: %d, body: %s}",
+			response.StatusCode, message)
 	}
 	body, err := ioutil.ReadAll(response.Body)
 	if err != nil {
