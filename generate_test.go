@@ -52,8 +52,8 @@ func TestFromStringWithServerError(t *testing.T) {
 			t.Errorf("FromStringWithServerError error\nexpected: %s\nactual:   %s", expected, payload)
 		}
 		imageFormat := uri[len(uri)-2]
-		if imageFormat != "jpeg" {
-			t.Errorf("FromStringWithServerError error\nexpected: %s\nactual:   %s", "jpeg", imageFormat)
+		if imageFormat != string(JPEG) {
+			t.Errorf("FromStringWithServerError error\nexpected: %s\nactual:   %s", string(JPEG), imageFormat)
 		}
 		diagramType := uri[len(uri)-3]
 		if diagramType != string(BlockDiag) {
@@ -81,7 +81,7 @@ func TestFromStringWithServerError(t *testing.T) {
   blockdiag [color = "greenyellow"];
   "block-diagrams" [color = "pink"];
   "very easy!" [color = "orange"];
-}`, BlockDiag, ImageFormat("jpeg"))
+}`, BlockDiag, JPEG)
 	if err == nil {
 		t.Error("FromStringWithServerError must return an error")
 	}
