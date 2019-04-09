@@ -10,7 +10,7 @@ Create a client:
 
 ```golang
 client := kroki.New(kroki.Configuration{
-		URL:     "https://demo.kroki.io",
+		URL:     "https://kroki.io",
 		Timeout: time.Second * 20,
 	})
 ```

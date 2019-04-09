@@ -68,7 +68,7 @@ func (configuration *Configuration) UnmarshalYAML(unmarshal func(interface{}) er
 	}
 	// default configuration
 	rawConfig := rawConfiguration{
-		URL:     "https://demo.kroki.io",
+		URL:     "https://kroki.io",
 		Timeout: 20,
 	}
 
