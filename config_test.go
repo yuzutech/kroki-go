@@ -15,17 +15,17 @@ func TestConfiguration(t *testing.T) {
 		{
 			in: "{}",
 			want: Configuration{
-				URL:     "https://demo.kroki.io",
+				URL:     "https://kroki.io",
 				Timeout: time.Second * 20,
 			},
 		},
 		{
 			in: `
-url: "https://kroki.io"
+url: "https://a.kroki.io"
 timeout: 30
 `,
 			want: Configuration{
-				URL:     "https://kroki.io",
+				URL:     "https://a.kroki.io",
 				Timeout: time.Second * 30,
 			},
 		},
