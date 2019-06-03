@@ -2,6 +2,7 @@ package kroki
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -28,7 +29,10 @@ func (c *Client) GetRequestContext(ctx context.Context, payload string, diagramT
 	}
 	timeoutCtx, cancel := context.WithTimeout(ctx, c.Config.Timeout)
 	defer cancel()
-	req.Header = http.Header{"Accept": {"text/plain"}}
+	req.Header = http.Header{
+		"Accept":     {"text/plain"},
+		"User-Agent": {fmt.Sprintf("kroki-go %s", Version)},
+	}
 	req = req.WithContext(timeoutCtx)
 
 	// execute the request
