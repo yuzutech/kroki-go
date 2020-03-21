@@ -52,6 +52,16 @@ const (
 	ActDiag DiagramType = "actdiag"
 	// Ditaa is the ditaa diagram type
 	Ditaa DiagramType = "ditaa"
+	// RackDiag is the rackdiag diagram type
+	RackDiag DiagramType = "rackdiag"
+	// PacketDiag is the packetdiag diagram type
+	PacketDiag DiagramType = "packetdiag"
+	// Vega is the vega diagram type
+	Vega DiagramType = "vega"
+	// VegaLite is the vegalite diagram type
+	VegaLite DiagramType = "vegalite"
+	// WaveDrom is the wavedrom diagram type
+	WaveDrom DiagramType = "wavedrom"
 )
 
 // Configuration contains the configuration for the Kroki client
