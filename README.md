@@ -1,6 +1,6 @@
 # Kroki Go
 
-[![Build Status](https://travis-ci.org/yuzutech/kroki-go.svg?branch=master)](https://travis-ci.org/yuzutech/kroki-go)
+[![Build Status](https://github.com/yuzutech/kroki-go/workflows/CI/badge.svg)](https://github.com/yuzutech/kroki-go/actions?query=workflow%3ACI)
 
 A Golang library for [https://kroki.io/](https://kroki.io/).
 
