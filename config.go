@@ -26,36 +26,42 @@ const (
 )
 
 const (
-	// GraphViz is the graphviz diagram type
-	GraphViz DiagramType = "graphviz"
+	// ActDiag is the actdiag diagram type
+	ActDiag DiagramType = "actdiag"
 	// BlockDiag is the blockdiag diagram type
 	BlockDiag DiagramType = "blockdiag"
-	// SeqDiag is the seqdiag diagram type
-	SeqDiag DiagramType = "seqdiag"
+	// BPMN is the bpmn diagram type
+	BPMN DiagramType = "bpmn"
+	// BPMN is the bpmn diagram type
+	Bytefield DiagramType = "bytefield"
+	// C4PlantUML is the c4plantuml diagram type
+	C4PlantUML DiagramType = "c4plantuml"
+	// Ditaa is the ditaa diagram type
+	Ditaa DiagramType = "ditaa"
+	// Erd is the erd diagram type
+	Erd DiagramType = "erd"
+	// Excalidraw is the excalidraw diagram type
+	Excalidraw DiagramType = "excalidraw"
+	// GraphViz is the graphviz diagram type
+	GraphViz DiagramType = "graphviz"
 	// Mermaid is the mermaid diagram type
 	Mermaid DiagramType = "mermaid"
 	// Nomnoml is the nomnoml diagram type
 	Nomnoml DiagramType = "nomnoml"
-	// PlantUML is the plantuml diagram type
-	PlantUML DiagramType = "plantuml"
-	// Svgbob is the svgbob diagram type
-	Svgbob DiagramType = "svgbob"
-	// C4PlantUML is the c4plantuml diagram type
-	C4PlantUML DiagramType = "c4plantuml"
-	// UMlet is the umlet diagram type
-	UMlet DiagramType = "umlet"
-	// Erd is the erd diagram type
-	Erd DiagramType = "erd"
 	// NwDiag is the nwdiag diagram type
 	NwDiag DiagramType = "nwdiag"
-	// ActDiag is the actdiag diagram type
-	ActDiag DiagramType = "actdiag"
-	// Ditaa is the ditaa diagram type
-	Ditaa DiagramType = "ditaa"
-	// RackDiag is the rackdiag diagram type
-	RackDiag DiagramType = "rackdiag"
 	// PacketDiag is the packetdiag diagram type
 	PacketDiag DiagramType = "packetdiag"
+	// PlantUML is the plantuml diagram type
+	PlantUML DiagramType = "plantuml"
+	// RackDiag is the rackdiag diagram type
+	RackDiag DiagramType = "rackdiag"
+	// SeqDiag is the seqdiag diagram type
+	SeqDiag DiagramType = "seqdiag"
+	// Svgbob is the svgbob diagram type
+	Svgbob DiagramType = "svgbob"
+	// UMlet is the umlet diagram type
+	UMlet DiagramType = "umlet"
 	// Vega is the vega diagram type
 	Vega DiagramType = "vega"
 	// VegaLite is the vegalite diagram type
