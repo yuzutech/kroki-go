@@ -41,5 +41,67 @@ timeout: 30
 			t.Errorf("error\ngot:\n%s\nwant:\n%s", got, tc.want)
 		}
 	}
+}
 
+func TestGetSupportedImageFormats(t *testing.T) {
+	supportedImageFormats := getSupportedImageFormats()
+	checkContainsImageFormat(t, supportedImageFormats, Base64)
+	checkContainsImageFormat(t, supportedImageFormats, SVG)
+	checkContainsImageFormat(t, supportedImageFormats, JPEG)
+	checkContainsImageFormat(t, supportedImageFormats, PDF)
+	checkContainsImageFormat(t, supportedImageFormats, PNG)
+}
+
+func checkContainsImageFormat(t *testing.T, list []ImageFormat, imageFormat ImageFormat) {
+	if !containsImageFormat(list, imageFormat) {
+		t.Errorf("error\n%s should be a supported image format", imageFormat)
+	}
+}
+
+func containsImageFormat(s []ImageFormat, imageFormat ImageFormat) bool {
+	for _, v := range s {
+		if v == imageFormat {
+			return true
+		}
+	}
+	return false
+}
+
+func TestGetSupportedDiagramTypes(t *testing.T) {
+	supportedDiagramTypes := getSupportedDiagramTypes()
+	checkContainsDiagramType(t, supportedDiagramTypes, ActDiag)
+	checkContainsDiagramType(t, supportedDiagramTypes, BlockDiag)
+	checkContainsDiagramType(t, supportedDiagramTypes, BPMN)
+	checkContainsDiagramType(t, supportedDiagramTypes, Bytefield)
+	checkContainsDiagramType(t, supportedDiagramTypes, C4PlantUML)
+	checkContainsDiagramType(t, supportedDiagramTypes, Ditaa)
+	checkContainsDiagramType(t, supportedDiagramTypes, Erd)
+	checkContainsDiagramType(t, supportedDiagramTypes, Excalidraw)
+	checkContainsDiagramType(t, supportedDiagramTypes, Mermaid)
+	checkContainsDiagramType(t, supportedDiagramTypes, Nomnoml)
+	checkContainsDiagramType(t, supportedDiagramTypes, NwDiag)
+	checkContainsDiagramType(t, supportedDiagramTypes, PacketDiag)
+	checkContainsDiagramType(t, supportedDiagramTypes, PlantUML)
+	checkContainsDiagramType(t, supportedDiagramTypes, RackDiag)
+	checkContainsDiagramType(t, supportedDiagramTypes, SeqDiag)
+	checkContainsDiagramType(t, supportedDiagramTypes, Svgbob)
+	checkContainsDiagramType(t, supportedDiagramTypes, UMlet)
+	checkContainsDiagramType(t, supportedDiagramTypes, Vega)
+	checkContainsDiagramType(t, supportedDiagramTypes, VegaLite)
+	checkContainsDiagramType(t, supportedDiagramTypes, WaveDrom)
+}
+
+func checkContainsDiagramType(t *testing.T, list []DiagramType, diagramType DiagramType) {
+	if !containsDiagramType(list, diagramType) {
+		t.Errorf("error\n%s should be a supported diagram type", diagramType)
+	}
+}
+
+func containsDiagramType(s []DiagramType, diagramType DiagramType) bool {
+	for _, v := range s {
+		if v == diagramType {
+			return true
+		}
+	}
+	return false
 }
