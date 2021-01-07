@@ -25,6 +25,18 @@ const (
 	Base64 ImageFormat = "base64"
 )
 
+// getSupportedImageFormats returns the list of all the supported image formats
+// Please note that not all image formats are available on all diagram types
+func getSupportedImageFormats() []ImageFormat {
+	return []ImageFormat{
+		SVG,
+		PNG,
+		JPEG,
+		PDF,
+		Base64,
+	}
+}
+
 const (
 	// ActDiag is the actdiag diagram type
 	ActDiag DiagramType = "actdiag"
@@ -69,6 +81,33 @@ const (
 	// WaveDrom is the wavedrom diagram type
 	WaveDrom DiagramType = "wavedrom"
 )
+
+// getSupportedDiagramTypes returns the list of all supported diagram types
+func getSupportedDiagramTypes() []DiagramType {
+	return []DiagramType{
+		ActDiag,
+		BlockDiag,
+		BPMN,
+		Bytefield,
+		C4PlantUML,
+		Ditaa,
+		Erd,
+		Excalidraw,
+		GraphViz,
+		Mermaid,
+		Nomnoml,
+		NwDiag,
+		PacketDiag,
+		PlantUML,
+		RackDiag,
+		SeqDiag,
+		Svgbob,
+		UMlet,
+		Vega,
+		VegaLite,
+		WaveDrom,
+	}
+}
 
 // Configuration contains the configuration for the Kroki client
 type Configuration struct {
