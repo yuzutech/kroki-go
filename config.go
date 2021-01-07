@@ -25,9 +25,9 @@ const (
 	Base64 ImageFormat = "base64"
 )
 
-// getSupportedImageFormats returns the list of all the supported image formats
+// GetSupportedImageFormats returns the list of all the supported image formats
 // Please note that not all image formats are available on all diagram types
-func getSupportedImageFormats() []ImageFormat {
+func GetSupportedImageFormats() []ImageFormat {
 	return []ImageFormat{
 		SVG,
 		PNG,
@@ -82,8 +82,8 @@ const (
 	WaveDrom DiagramType = "wavedrom"
 )
 
-// getSupportedDiagramTypes returns the list of all supported diagram types
-func getSupportedDiagramTypes() []DiagramType {
+// GetSupportedDiagramTypes returns the list of all supported diagram types
+func GetSupportedDiagramTypes() []DiagramType {
 	return []DiagramType{
 		ActDiag,
 		BlockDiag,

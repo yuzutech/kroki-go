@@ -44,7 +44,7 @@ timeout: 30
 }
 
 func TestGetSupportedImageFormats(t *testing.T) {
-	supportedImageFormats := getSupportedImageFormats()
+	supportedImageFormats := GetSupportedImageFormats()
 	checkContainsImageFormat(t, supportedImageFormats, Base64)
 	checkContainsImageFormat(t, supportedImageFormats, SVG)
 	checkContainsImageFormat(t, supportedImageFormats, JPEG)
@@ -68,7 +68,7 @@ func containsImageFormat(s []ImageFormat, imageFormat ImageFormat) bool {
 }
 
 func TestGetSupportedDiagramTypes(t *testing.T) {
-	supportedDiagramTypes := getSupportedDiagramTypes()
+	supportedDiagramTypes := GetSupportedDiagramTypes()
 	checkContainsDiagramType(t, supportedDiagramTypes, ActDiag)
 	checkContainsDiagramType(t, supportedDiagramTypes, BlockDiag)
 	checkContainsDiagramType(t, supportedDiagramTypes, BPMN)
