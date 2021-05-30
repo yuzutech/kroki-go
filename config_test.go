@@ -81,6 +81,7 @@ func TestGetSupportedDiagramTypes(t *testing.T) {
 	checkContainsDiagramType(t, supportedDiagramTypes, Nomnoml)
 	checkContainsDiagramType(t, supportedDiagramTypes, NwDiag)
 	checkContainsDiagramType(t, supportedDiagramTypes, PacketDiag)
+	checkContainsDiagramType(t, supportedDiagramTypes, Pikchr)
 	checkContainsDiagramType(t, supportedDiagramTypes, PlantUML)
 	checkContainsDiagramType(t, supportedDiagramTypes, RackDiag)
 	checkContainsDiagramType(t, supportedDiagramTypes, SeqDiag)

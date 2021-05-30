@@ -64,6 +64,8 @@ const (
 	NwDiag DiagramType = "nwdiag"
 	// PacketDiag is the packetdiag diagram type
 	PacketDiag DiagramType = "packetdiag"
+	// Pikchr is the pikchr diagram type
+	Pikchr DiagramType = "pikchr"
 	// PlantUML is the plantuml diagram type
 	PlantUML DiagramType = "plantuml"
 	// RackDiag is the rackdiag diagram type
@@ -98,6 +100,7 @@ func GetSupportedDiagramTypes() []DiagramType {
 		Nomnoml,
 		NwDiag,
 		PacketDiag,
+		Pikchr,
 		PlantUML,
 		RackDiag,
 		SeqDiag,
