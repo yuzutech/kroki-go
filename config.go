@@ -48,6 +48,8 @@ const (
 	Bytefield DiagramType = "bytefield"
 	// C4PlantUML is the c4plantuml diagram type
 	C4PlantUML DiagramType = "c4plantuml"
+	// Diagramsnet is the diagrams.net diagram type
+	Diagramsnet DiagramType = "diagramsnet"
 	// Ditaa is the ditaa diagram type
 	Ditaa DiagramType = "ditaa"
 	// Erd is the erd diagram type
@@ -72,6 +74,8 @@ const (
 	RackDiag DiagramType = "rackdiag"
 	// SeqDiag is the seqdiag diagram type
 	SeqDiag DiagramType = "seqdiag"
+	// Structurizr is the structurizr diagram type
+	Structurizr DiagramType = "structurizr"
 	// Svgbob is the svgbob diagram type
 	Svgbob DiagramType = "svgbob"
 	// UMlet is the umlet diagram type
@@ -92,6 +96,7 @@ func GetSupportedDiagramTypes() []DiagramType {
 		BPMN,
 		Bytefield,
 		C4PlantUML,
+		Diagramsnet,
 		Ditaa,
 		Erd,
 		Excalidraw,
@@ -104,6 +109,7 @@ func GetSupportedDiagramTypes() []DiagramType {
 		PlantUML,
 		RackDiag,
 		SeqDiag,
+		Structurizr,
 		Svgbob,
 		UMlet,
 		Vega,
