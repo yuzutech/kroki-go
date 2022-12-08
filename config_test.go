@@ -74,6 +74,7 @@ func TestGetSupportedDiagramTypes(t *testing.T) {
 	checkContainsDiagramType(t, supportedDiagramTypes, BPMN)
 	checkContainsDiagramType(t, supportedDiagramTypes, Bytefield)
 	checkContainsDiagramType(t, supportedDiagramTypes, C4PlantUML)
+	checkContainsDiagramType(t, supportedDiagramTypes, D2)
 	checkContainsDiagramType(t, supportedDiagramTypes, Diagramsnet)
 	checkContainsDiagramType(t, supportedDiagramTypes, Ditaa)
 	checkContainsDiagramType(t, supportedDiagramTypes, Erd)

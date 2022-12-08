@@ -48,6 +48,8 @@ const (
 	Bytefield DiagramType = "bytefield"
 	// C4PlantUML is the c4plantuml diagram type
 	C4PlantUML DiagramType = "c4plantuml"
+	// D2 is the d2 diagram type
+	D2 DiagramType = "d2"
 	// Diagramsnet is the diagrams.net diagram type
 	Diagramsnet DiagramType = "diagramsnet"
 	// Ditaa is the ditaa diagram type
@@ -96,6 +98,7 @@ func GetSupportedDiagramTypes() []DiagramType {
 		BPMN,
 		Bytefield,
 		C4PlantUML,
+		D2,
 		Diagramsnet,
 		Ditaa,
 		Erd,
