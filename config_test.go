@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	yaml "gopkg.in/yaml.v3"
+	"gopkg.in/yaml.v3"
 )
 
 func TestConfiguration(t *testing.T) {
