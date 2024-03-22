@@ -2,9 +2,10 @@ package kroki
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"strconv"
 	"strings"
 	"testing"
@@ -141,11 +142,11 @@ func TestFromLargeFile(t *testing.T) {
 			t.Errorf("FromLargeFile error\nexpectedBody: %s\nactual:   %s", expectedRequestMethod, method)
 		}
 		uri := strings.Split(r.RequestURI, "/")
-		body, err := ioutil.ReadAll(r.Body)
+		body, err := io.ReadAll(r.Body)
 		if err != nil {
 			t.Errorf("FromLargeFile unable to read body")
 		}
-		content, err := ioutil.ReadFile(file)
+		content, err := os.ReadFile(file)
 		if err != nil {
 			t.Errorf("FromLargeFile unable to read file: %s", file)
 		}
@@ -178,7 +179,6 @@ func TestFromLargeFile(t *testing.T) {
 	}
 }
 
-
 func TestWriteToFile(t *testing.T) {
 	client := New(Configuration{})
 	expected := "clojure"
@@ -187,7 +187,7 @@ func TestWriteToFile(t *testing.T) {
 	if err != nil {
 		t.Errorf("WriteToFile error:\n%+v", err)
 	}
-	content, err := ioutil.ReadFile(filePath)
+	content, err := os.ReadFile(filePath)
 	if err != nil {
 		t.Errorf("read file error:\n%+v", err)
 	}

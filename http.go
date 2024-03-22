@@ -3,7 +3,7 @@ package kroki
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"path"
@@ -46,7 +46,7 @@ func (c *Client) PostRequestContext(ctx context.Context, payload string, diagram
 	// read the result
 	defer response.Body.Close()
 	if response.StatusCode != http.StatusOK {
-		body, err := ioutil.ReadAll(response.Body)
+		body, err := io.ReadAll(response.Body)
 		var message string
 		if err != nil {
 			message = ""
@@ -57,7 +57,7 @@ func (c *Client) PostRequestContext(ctx context.Context, payload string, diagram
 			"fail to generate the image {status: %d, body: %s}",
 			response.StatusCode, message)
 	}
-	body, err := ioutil.ReadAll(response.Body)
+	body, err := io.ReadAll(response.Body)
 	if err != nil {
 		return "", errors.Wrap(err, "fail to read the response body")
 	}
@@ -104,7 +104,7 @@ func (c *Client) GetRequestContext(ctx context.Context, payload string, diagramT
 	// read the result
 	defer response.Body.Close()
 	if response.StatusCode != http.StatusOK {
-		body, err := ioutil.ReadAll(response.Body)
+		body, err := io.ReadAll(response.Body)
 		var message string
 		if err != nil {
 			message = ""
@@ -115,7 +115,7 @@ func (c *Client) GetRequestContext(ctx context.Context, payload string, diagramT
 			"fail to generate the image {status: %d, body: %s}",
 			response.StatusCode, message)
 	}
-	body, err := ioutil.ReadAll(response.Body)
+	body, err := io.ReadAll(response.Body)
 	if err != nil {
 		return "", errors.Wrap(err, "fail to read the response body")
 	}
