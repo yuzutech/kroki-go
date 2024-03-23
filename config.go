@@ -1,9 +1,8 @@
 package kroki
 
 import (
+	"fmt"
 	"time"
-
-	"github.com/pkg/errors"
 )
 
 // ImageFormat the image format returned by Kroki
@@ -140,7 +139,7 @@ func (configuration *Configuration) UnmarshalYAML(unmarshal func(interface{}) er
 	}
 
 	if err := unmarshal(&rawConfig); err != nil {
-		return errors.Wrap(err, "fail to decode the yaml configuration")
+		return fmt.Errorf("fail to decode the yaml configuration: %w", err)
 	}
 	*configuration = Configuration{
 		URL:     rawConfig.URL,

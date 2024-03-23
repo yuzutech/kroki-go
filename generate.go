@@ -1,9 +1,8 @@
 package kroki
 
 import (
+	"fmt"
 	"os"
-
-	"github.com/pkg/errors"
 )
 
 const MAX_URI_LENGTH = 4096
@@ -25,7 +24,7 @@ func (c *Client) FromString(input string, diagramType DiagramType, imageFormat I
 func (c *Client) FromFile(path string, diagramType DiagramType, imageFormat ImageFormat) (string, error) {
 	content, err := os.ReadFile(path)
 	if err != nil {
-		return "", errors.Wrapf(err, "fail to read file '%s'", path)
+		return "", fmt.Errorf("fail to read file '%s': %w", path, err)
 	}
 	input := string(content)
 	payload, err := CreatePayload(input)
@@ -44,16 +43,16 @@ func (c *Client) FromFile(path string, diagramType DiagramType, imageFormat Imag
 func (c *Client) WriteToFile(path string, result string) error {
 	file, err := os.Create(path)
 	if err != nil {
-		return errors.Wrapf(err, "fail to create file '%s'", path)
+		return fmt.Errorf("fail to create file '%s': %w", path, err)
 	}
 	defer file.Close()
 	_, err = file.Write([]byte(result))
 	if err != nil {
-		return errors.Wrapf(err, "fail to write to file '%s'", path)
+		return fmt.Errorf("fail to write to file '%s': %w", path, err)
 	}
 	err = file.Sync()
 	if err != nil {
-		return errors.Wrapf(err, "fail to sync file '%s'", path)
+		return fmt.Errorf("fail to sync file '%s': %w", path, err)
 	}
 	return nil
 }
